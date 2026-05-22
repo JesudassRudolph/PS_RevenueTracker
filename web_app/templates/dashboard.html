@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS_RevenueTracker - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>PS_RevenueTracker</h1>
+            </div>
+            <div class="navbar-content">
+                <div class="user-info">
+                    <span id="userName" class="user-name"></span>
+                    <button id="logoutBtn" class="btn btn-logout">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h2>Welcome to Revenue Tracker</h2>
+                <p id="loginTime" class="timestamp"></p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Card 1: Overview -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Revenue Overview</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Total Revenue: <strong>$0.00</strong></p>
+                        <p>This Month: <strong>$0.00</strong></p>
+                        <p>Growth: <strong>0%</strong></p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Session Info -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Session Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>User: <strong id="sessionUser">{{ user }}</strong></p>
+                        <p>Login Time: <strong id="sessionLoginTime">{{ login_time }}</strong></p>
+                        <p>Session Status: <strong class="status-active">Active</strong></p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Quick Actions -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-action">View Reports</button>
+                        <button class="btn btn-action">Add Transaction</button>
+                        <button class="btn btn-action">Settings</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
